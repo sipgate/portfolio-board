@@ -5,7 +5,7 @@ const create = (req, res, next) => {
 
   lane
     .save()
-    .then(savedLane => res.send(savedLane))
+    .then(savedStream => res.send(savedStream))
     .catch(e => next(e));
 };
 
@@ -23,7 +23,7 @@ const list = (req, res, next) => {
 
 const update = (req, res, next) => {
   Stream.findByIdAndUpdate(req.params.id, req.body)
-    .then(updatedLane => res.send(updatedLane))
+    .then(updatedStream => res.send(updatedStream))
     .catch(e => next(e));
 };
 
