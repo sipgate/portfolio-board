@@ -15,7 +15,14 @@ const list = (req, res, next) => {
     .catch(e => next(e));
 };
 
+const update = (req, res, next) => {
+  Canvas.findByIdAndUpdate(req.params.id, req.body).then(updatedCanvas =>
+    res.send(updatedCanvas)
+  );
+};
+
 export default {
   create,
-  list
+  list,
+  update
 };

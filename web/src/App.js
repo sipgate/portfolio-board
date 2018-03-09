@@ -14,8 +14,42 @@ class App extends Component {
     apiClient.fetchCanvases().then(canvases => this.setState({ canvases }));
   }
 
+  createCanvas = () => {
+    const canvas = {
+      title: "TODO",
+      po: "TODO",
+      stream: "TODO",
+      problem: "TODO",
+      proposedSolution: "TODO",
+      customerValue: "TODO",
+      problemValidation: "TODO",
+      solutionValidation: "TODO",
+      mmf: "TODO",
+      target: "TODO",
+      measuringSuccess: "TODO",
+      strategicFit: "TODO",
+      businessValue: "TODO",
+      estimatedTeamEffort: 5
+    };
+
+    apiClient
+      .createCanvas(canvas)
+      .then(savedCanvas =>
+        this.setState({ canvases: [...this.state.canvases, savedCanvas] })
+      );
+  };
+
   updateCanvas = canvas => {
-    console.log(canvas);
+    apiClient.updateCanvas(canvas).then(updatedCanvas =>
+      this.setState({
+        canvases: [
+          ...this.state.canvases.filter(
+            element => element._id !== updatedCanvas._id
+          ),
+          updatedCanvas
+        ]
+      })
+    );
   };
 
   render() {
@@ -28,6 +62,7 @@ class App extends Component {
             updateCanvas={this.updateCanvas}
           />
         ))}
+        <button onClick={this.createCanvas}>Add new canvas</button>
       </div>
     );
   }
