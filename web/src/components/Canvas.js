@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 import "./Canvas.css";
 
 class Canvas extends Component {
+  updateCanvas = property => ({ target: { textContent } }) =>
+    this.props.updateCanvas({
+      ...this.props.canvas,
+      [property]: textContent
+    });
+
   render() {
     const {
       title,
@@ -19,11 +25,25 @@ class Canvas extends Component {
       <table>
         <thead>
           <tr>
-            <th>{title}</th>
-            <th>
+            <th
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("title")}
+            >
+              {title}
+            </th>
+            <th
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("stream")}
+            >
               {stream}
             </th>
-            <th>
+            <th
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("po")}
+            >
               {po}
             </th>
           </tr>
@@ -35,25 +55,92 @@ class Canvas extends Component {
         </thead>
         <tbody>
           <tr>
-            <td>{problem}</td>
-            <td>{problemValidation}</td>
-            <td>{mmf}</td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("problem")}
+            >
+              {problem}
+            </td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("problemValidation")}
+            >
+              {problemValidation}
+            </td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("mmf")}
+            >
+              {mmf}
+            </td>
           </tr>
           <tr>
-            <td>{proposedSolution}</td>
-            <td rowSpan="2">{solutionValidation}</td>
-            <td>{target}</td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("proposedSolution")}
+            >
+              {proposedSolution}
+            </td>
+            <td
+              rowSpan="2"
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("solutionValidation")}
+            >
+              {solutionValidation}
+            </td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("target")}
+            >
+              {target}
+            </td>
           </tr>
           <tr>
-            <td>{customerValue}</td>
-            <td>{measuringSuccess}</td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("customerValue")}
+            >
+              {customerValue}
+            </td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("measuringSuccess")}
+            >
+              {measuringSuccess}
+            </td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <td>{strategicFit}</td>
-            <td>{businessValue}</td>
-            <td>{estimatedTeamEffort}</td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("strategicFit")}
+            >
+              {strategicFit}
+            </td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("businessValue")}
+            >
+              {businessValue}
+            </td>
+            <td
+              contentEditable
+              suppressContentEditableWarning
+              onBlur={this.updateCanvas("estimatedTeamEffort")}
+            >
+              {estimatedTeamEffort}
+            </td>
           </tr>
         </tfoot>
       </table>
