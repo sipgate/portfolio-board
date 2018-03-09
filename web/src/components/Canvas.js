@@ -14,9 +14,14 @@ class Canvas extends Component {
       title,
       po,
       stream,
-      ideation: { problem, proposedSolution, customerValue },
-      qualification: { problemValidation, solutionValidation },
-      grooming: { mmf, target, measuringSuccess },
+      problem,
+      proposedSolution,
+      customerValue,
+      problemValidation,
+      solutionValidation,
+      mmf,
+      target,
+      measuringSuccess,
       strategicFit,
       businessValue,
       estimatedTeamEffort
@@ -153,20 +158,14 @@ Canvas.propTypes = {
     title: PropTypes.string.isRequired,
     po: PropTypes.string.isRequired,
     stream: PropTypes.string.isRequired,
-    ideation: PropTypes.shape({
-      problem: PropTypes.string.isRequired,
-      proposedSolution: PropTypes.string.isRequired,
-      customerValue: PropTypes.string.isRequired
-    }).isRequired,
-    qualification: PropTypes.shape({
-      problemValidation: PropTypes.string.isRequired,
-      solutionValidation: PropTypes.string.isRequired
-    }).isRequired,
-    grooming: PropTypes.shape({
-      mmf: PropTypes.string.isRequired,
-      target: PropTypes.string.isRequired,
-      measuringSuccess: PropTypes.string.isRequired
-    }).isRequired,
+    problem: PropTypes.string.isRequired,
+    proposedSolution: PropTypes.string.isRequired,
+    customerValue: PropTypes.string.isRequired,
+    problemValidation: PropTypes.string.isRequired,
+    solutionValidation: PropTypes.string.isRequired,
+    mmf: PropTypes.string.isRequired,
+    target: PropTypes.string.isRequired,
+    measuringSuccess: PropTypes.string.isRequired,
     strategicFit: PropTypes.string.isRequired,
     businessValue: PropTypes.string.isRequired,
     estimatedTeamEffort: PropTypes.number.isRequired
