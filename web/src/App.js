@@ -3,27 +3,16 @@ import "./App.css";
 
 import Canvas from "./components/Canvas";
 
+import apiClient from "./api-client";
+
 class App extends Component {
   state = {
-    canvases: [
-      {
-        title: "Awesome Canvas",
-        po: "Ben",
-        stream: "Awesome Stream",
-        problem: "Houston we have a problem!",
-        proposedSolution: "Send rocket to Mars and start building a colony.",
-        customerValue: "Customers can visit Mars.",
-        problemValidation: "Validate all the things",
-        solutionValidation: "Validate our solution as fast as possible",
-        mmf: "Make money fast",
-        target: "Make even more money",
-        measuringSuccess: "Counting money",
-        strategicFit: "It fits",
-        businessValue: "Everybody loves interstellar travelling",
-        estimatedTeamEffort: 5
-      }
-    ]
+    canvases: []
   };
+
+  componentWillMount() {
+    apiClient.fetchCanvases().then(canvases => this.setState({ canvases }));
+  }
 
   updateCanvas = canvas => {
     console.log(canvas);

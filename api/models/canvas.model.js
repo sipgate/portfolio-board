@@ -14,7 +14,7 @@ const CanvasSchema = new mongoose.Schema({
   measuringSuccess: { type: String, required: true },
   strategicFit: { type: String, required: true },
   businessValue: { type: String, required: true },
-  estimatedTeamEffort: { type: String, required: true }
+  estimatedTeamEffort: { type: Number, required: true }
 });
 
 export default mongoose.model("Canvas", CanvasSchema);
