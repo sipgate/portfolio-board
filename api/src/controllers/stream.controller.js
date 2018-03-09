@@ -1,4 +1,4 @@
-import Stream from "../models/lane.model";
+import Stream from "../models/stream.model";
 
 const create = (req, res, next) => {
   const lane = new Stream(req.body);

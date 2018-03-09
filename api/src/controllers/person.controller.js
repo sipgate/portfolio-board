@@ -1,4 +1,4 @@
-import Person from "../models/lane.model";
+import Person from "../models/person.model";
 
 const create = (req, res, next) => {
   const person = new Person(req.body);
