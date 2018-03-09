@@ -2,16 +2,25 @@ import React, { Component } from "react";
 import "./App.css";
 
 import Canvas from "./components/Canvas";
+import Lane from "./components/Lane";
+import Stream from "./components/Stream";
+import Person from "./components/Person";
 
 import apiClient from "./api-client";
 
 class App extends Component {
   state = {
-    canvases: []
+    canvases: [],
+    lanes: [],
+    streams: [],
+    persons: []
   };
 
   componentWillMount() {
+    apiClient.fetchLanes().then(lanes => this.setState({ lanes }));
+    apiClient.fetchStreams().then(streams => this.setState({ streams }));
     apiClient.fetchCanvases().then(canvases => this.setState({ canvases }));
+    apiClient.fetchPersons().then(persons => this.setState({ persons }));
   }
 
   createCanvas = () => {
@@ -73,6 +82,24 @@ class App extends Component {
             canvas={canvas}
             updateCanvas={this.updateCanvas}
             deleteCanvas={this.deleteCanvas}
+          />
+        ))}
+        {this.state.lanes.map(canvas => (
+          <Lane
+            key={canvas.title}
+            canvas={canvas}
+          />
+        ))}
+        {this.state.streams.map(stream => (
+          <Stream
+            key={stream.title}
+            canvas={stream}
+          />
+        ))}
+        {this.state.persons.map(person => (
+          <Person
+            key={person.title}
+            person={person}
           />
         ))}
         <button onClick={this.createCanvas}>Add new canvas</button>
