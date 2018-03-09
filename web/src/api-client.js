@@ -9,6 +9,8 @@ const client = axios.create({
 const createCanvas = canvas =>
   client.post("/canvases", canvas).then(res => res.data);
 
+const deleteCanvas = id => client.delete(`/canvases/${id}`);
+
 const fetchCanvases = () => client.get("/canvases").then(res => res.data);
 
 const updateCanvas = canvas =>
@@ -16,6 +18,7 @@ const updateCanvas = canvas =>
 
 export default {
   createCanvas,
+  deleteCanvas,
   fetchCanvases,
   updateCanvas
 };

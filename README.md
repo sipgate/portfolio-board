@@ -7,6 +7,3 @@ Make sure you have a running MongoDB on port 27017 and then start the applicatio
 ```sh
 yarn && yarn start
 ```
-
-
-Pr

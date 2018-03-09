@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+td {
+  width: 33.3333%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  vertical-align: top;
+}
+
+thead, tfoot {
+  background-color:rgb(251, 252, 255);
+}

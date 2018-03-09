@@ -9,6 +9,12 @@ const create = (req, res, next) => {
     .catch(e => next(e));
 };
 
+const remove = (req, res, next) => {
+  Canvas.remove({ _id: req.params.id })
+    .then(() => res.sendStatus(204))
+    .catch(e => next(e));
+};
+
 const list = (req, res, next) => {
   Canvas.find({})
     .then(canvases => res.send(canvases))
@@ -23,6 +29,7 @@ const update = (req, res, next) => {
 
 export default {
   create,
+  remove,
   list,
   update
 };

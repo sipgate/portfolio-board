@@ -16,9 +16,9 @@ class App extends Component {
 
   createCanvas = () => {
     const canvas = {
-      title: "TODO",
-      po: "TODO",
-      stream: "TODO",
+      title: "Awesome Title",
+      po: "John Doe",
+      stream: "Awesome Stream",
       problem: "TODO",
       proposedSolution: "TODO",
       customerValue: "TODO",
@@ -52,6 +52,18 @@ class App extends Component {
     );
   };
 
+  deleteCanvas = id => {
+    apiClient.deleteCanvas(id).then(() =>
+      this.setState({
+        canvases: [
+          ...this.state.canvases.filter(
+            element => element._id !== id // eslint-disable-line no-underscore-dangle
+          )
+        ]
+      })
+    );
+  };
+
   render() {
     return (
       <div>
@@ -60,6 +72,7 @@ class App extends Component {
             key={canvas.title}
             canvas={canvas}
             updateCanvas={this.updateCanvas}
+            deleteCanvas={this.deleteCanvas}
           />
         ))}
         <button onClick={this.createCanvas}>Add new canvas</button>
