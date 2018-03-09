@@ -5,6 +5,9 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 import canvasRoutes from "./routes/canvas.route";
+import laneRoute from "./routes/lane.route";
+import streamRoute from "./routes/stream.route";
+import personRoute from "./routes/person.route";
 
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/test";
 
@@ -20,6 +23,9 @@ app.use(helmet());
 app.use(cors());
 
 app.use("/canvases", canvasRoutes);
+app.use("/lanes", laneRoute);
+app.use("/streams", streamRoute);
+app.use("/persons", personRoute);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
