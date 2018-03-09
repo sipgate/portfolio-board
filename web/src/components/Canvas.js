@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./Canvas.css";
 
 class Canvas extends Component {
   render() {
@@ -16,7 +17,45 @@ class Canvas extends Component {
     } = this.props.canvas;
     return (
       <table>
-        <thead />
+        <thead>
+          <tr>
+            <th>{title}</th>
+            <th>
+              {stream}
+            </th>
+            <th>
+              {po}
+            </th>
+          </tr>
+          <tr>
+            <th>IDEATION</th>
+            <th>QUALIFICATION</th>
+            <th>GROOMING</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{problem}</td>
+            <td>{problemValidation}</td>
+            <td>{mmf}</td>
+          </tr>
+          <tr>
+            <td>{proposedSolution}</td>
+            <td rowSpan="2">{solutionValidation}</td>
+            <td>{target}</td>
+          </tr>
+          <tr>
+            <td>{customerValue}</td>
+            <td>{measuringSuccess}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>{strategicFit}</td>
+            <td>{businessValue}</td>
+            <td>{estimatedTeamEffort}</td>
+          </tr>
+        </tfoot>
       </table>
     );
   }
