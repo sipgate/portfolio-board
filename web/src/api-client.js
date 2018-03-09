@@ -12,7 +12,7 @@ const createCanvas = canvas =>
 const fetchCanvases = () => client.get("/canvases").then(res => res.data);
 
 const updateCanvas = canvas =>
-  client.put(`/canvases/${canvas._id}`, canvas).then(res => res.data);
+  client.put(`/canvases/${canvas._id}`, canvas).then(res => res.data); // eslint-disable-line no-underscore-dangle
 
 export default {
   createCanvas,

@@ -9,7 +9,7 @@ import canvasRoutes from "./routes/canvas.route";
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/test";
 
 mongoose.connect(MONGO_URI).catch(error => {
-  console.error("Could not connect to mongodb", error);
+  console.error("Could not connect to mongodb", error); // eslint-disable-line no-console
   process.exit(1);
 });
 
@@ -23,5 +23,5 @@ app.use("/canvases", canvasRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.info(`Server started on port ${PORT}`);
+  console.info(`Server started on port ${PORT}`); // eslint-disable-line no-console
 });

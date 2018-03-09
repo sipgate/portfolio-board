@@ -16,9 +16,9 @@ const list = (req, res, next) => {
 };
 
 const update = (req, res, next) => {
-  Canvas.findByIdAndUpdate(req.params.id, req.body).then(updatedCanvas =>
-    res.send(updatedCanvas)
-  );
+  Canvas.findByIdAndUpdate(req.params.id, req.body)
+    .then(updatedCanvas => res.send(updatedCanvas))
+    .catch(e => next(e));
 };
 
 export default {

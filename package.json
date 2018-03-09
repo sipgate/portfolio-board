@@ -1,0 +1,34 @@
+{
+  "name": "portfolio-board",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sipgate/portfolio-board.git",
+  "author": "Benjamin Kluck <ben@fug.lu>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn bootstrap && yarn serve",
+    "bootstrap": "concurrently \"cd api && yarn\" \"cd web && yarn\"",
+    "serve": "concurrently \"cd api && yarn debug\" \"cd web && yarn start\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add",
+      "eslint --ext .jsx --ext .js ."
+    ]
+  },
+  "dependencies": {
+    "babel-eslint": "^8.2.2",
+    "concurrently": "^3.5.1",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1"
+  }
+}

@@ -44,7 +44,7 @@ class App extends Component {
       this.setState({
         canvases: [
           ...this.state.canvases.filter(
-            element => element._id !== updatedCanvas._id
+            element => element._id !== updatedCanvas._id // eslint-disable-line no-underscore-dangle
           ),
           updatedCanvas
         ]
